@@ -1,23 +1,14 @@
 SET(DepName "gclogg")
-IF(${WIN32})
-	IF(${IS_MSVC})
-		SET(OGG_ROOT "${CMAKE_CURRENT_LIST_DIR}")
-		SET(LPATH ${OGG_ROOT}/lib/${KINEVOX_ARCHITECTURE})
-		SET(LIB_NAME "libogg_static")
-	ELSEIF(${IS_GNU})
-		SET(OGG_ROOT "${MSYS_PATH}/local")		
-		SET(LPATH ${OGG_ROOT}/lib/)
-		SET(LIB_NAME "libogg")
-	ENDIF()
+
+SET(OGG_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+SET(LPATH ${OGG_ROOT}/lib/)
+SET(LIB_NAME "ogg")
+
 	
-	SET(OGG_INCLUDE_DIR ${OGG_ROOT}/include)
-	FindLibrary(OGG_LIBRARY ${LIB_NAME} ${LPATH})
+SET(OGG_INCLUDE_DIR ${OGG_ROOT}/include)
+FindLibrary(OGG_LIBRARY ${LIB_NAME} ${LPATH})
 	
-	SET(${DepName}_INCLUDE_DIR ${OGG_INCLUDE_DIR} )
-	list(APPEND ${DepName}_LIBS ${OGG_LIBRARY} )
-	#message("ogg!!!" ${OGG_LIBRARY})
-ELSE()
-        SET(${DepName}_INCLUDE_DIR "")
-        list(APPEND ${DepName}_LIBS "ogg")
-ENDIF()
+SET(${DepName}_INCLUDE_DIR ${OGG_INCLUDE_DIR} )
+list(APPEND ${DepName}_LIBS ${OGG_LIBRARY} )
+#message("ogg!!!" ${OGG_LIBRARY})
 
