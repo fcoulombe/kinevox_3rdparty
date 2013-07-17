@@ -1,6 +1,5 @@
 build*
 eglew
-binaries
 freetype2
 libpng
 ogg
