@@ -1,0 +1,26 @@
+SET(DepName "gclzlib")
+IF(${WIN32})
+	IF(${IS_MSVC})
+		SET(ZLIB_ROOT "${PROJECT_SOURCE_DIR}/3rdParty/zlib/")
+		SET(LPATH ${ZLIB_ROOT}/lib/${KINEVOX_ARCHITECTURE})
+		SET(LIB_NAME "zlib")
+	ELSEIF(${IS_GNU})
+		SET(ZLIB_ROOT "${MSYS_PATH}/local")
+		SET(LPATH ${ZLIB_ROOT}/lib/)
+		SET(LIB_NAME "libz")
+	ENDIF()
+	
+	FIND_PATH(
+		  ZLIB_INCLUDE_DIR zlib.h
+		  PATHS ${ZLIB_ROOT}/include)
+		
+	FindLibrary(ZLIB_LIBRARY ${LIB_NAME} ${LPATH})
+	SET(${DepName}_INCLUDE_DIR  ${ZLIB_INCLUDE_DIR})
+	list(APPEND ${DepName}_LIBS ${ZLIB_LIBRARY})
+	#	message("libz!!!" ${ZLIB_LIBRARY})
+ELSE()
+	FIND_PACKAGE(ZLIB)
+	SET(${DepName}_INCLUDE_DIR ${ZLIB_INCLUDE_DIR})
+	list(APPEND ${DepName}_LIBS ${ZLIB_LIBRARIES})
+
+ENDIF()

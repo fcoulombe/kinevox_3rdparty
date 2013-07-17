@@ -1,0 +1,27 @@
+SET(DepName "gclopenrl")
+IF(WIN32 AND ${USE_OPENRL} STREQUAL "ON")
+SET(OPENRL_ROOT "C:\\Program Files\\Imagination Technologies\\OpenRL SDK 1.2 R2\\")
+FIND_PATH(
+  OPENRL_INCLUDE_DIR OpenRL.h
+  PATHS 
+  "${OPENRL_ROOT}Include\\OpenRL")
+
+IF(${KINEVOX_ARCHITECTURE} MATCHES "32bit")
+SET(OPEN_RL_PATH "${OPENRL_ROOT}Lib\\VisualStudio10\\Win32")
+ENDIF()
+IF(${KINEVOX_ARCHITECTURE} MATCHES "64bit")
+SET(OPEN_RL_PATH "${OPENRL_ROOT}Lib\\VisualStudio10\\x64")
+ENDIF()
+FIND_LIBRARY(
+  OPENRL_LIBRARY 
+  NAMES 
+    OpenRL
+  PATHS
+    ${OPEN_RL_PATH}
+  NO_DEFAULT_PATHS )
+
+
+SET(${DepName}_INCLUDE_DIR ${OPENRL_INCLUDE_DIR}/.. )
+list(APPEND ${DepName}_LIBS ${OPENRL_LIBRARY} )
+#message("openrl!!" ${OPENRL_LIBRARY} )
+ENDIF()
