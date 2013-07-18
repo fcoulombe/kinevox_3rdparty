@@ -2,8 +2,11 @@ SET(DepName "gclzlib")
 
 SET(ZLIB_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
 SET(LPATH ${ZLIB_ROOT}/lib/)
-SET(LIB_NAME "zlibstatic")
-	
+if(${WIN32})
+    SET(LIB_NAME "zlibstatic")
+ELSE()
+    SET(LIB_NAME "libz")
+ENDIF()
 FIND_PATH(
 		  ZLIB_INCLUDE_DIR zlib.h
 		  PATHS ${ZLIB_ROOT}/include)
