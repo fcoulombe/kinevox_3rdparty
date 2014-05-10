@@ -1,7 +1,8 @@
 import os
 
 def main():
-	os.system("git clone  https://github.com/fcoulombe/OpenCOLLADA.git")
+	#os.system("git clone  https://github.com/fcoulombe/OpenCOLLADA.git")
+	os.system("git clone  https://github.com/fcoulombe/assimp.git")
 	os.system("git clone  https://github.com/madler/zlib.git")
 	os.system("git clone  https://github.com/fcoulombe/eglew.git")
 	os.system("git clone  https://github.com/fcoulombe/freetype2.git")

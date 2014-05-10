@@ -5,6 +5,8 @@ project (kinevox_3rdparty)
 INCLUDE(CheckTypeSize)
 CHECK_TYPE_SIZE (size_t SIZE_T_SIZE)
 
+SET(CMAKE_CONFIGURATION_TYPES "Debug;Release" CACHE STRING "limited configs"  FORCE)
+
 IF(${SIZE_T_SIZE} EQUAL 4)
 SET(KINEVOX_ARCHITECTURE "32bit")
 else()
@@ -100,10 +102,10 @@ ExternalProject_Add(
   CMAKE_ARGS ${${depname}_CMAKE_ARGS}
 )
 
-set(depname OpenCOLLADA)
+set(depname assimp)
 set(${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")
 set(${depname}_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-set(${depname}_CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} )
+set(${depname}_CMAKE_ARGS -DBUILD_SHARED_LIBS=false -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} )
 
 ExternalProject_Add(
    ${depname}
@@ -112,6 +114,20 @@ ExternalProject_Add(
      INSTALL_DIR ${${depname}_INSTALL_DIR}
   CMAKE_ARGS ${${depname}_CMAKE_ARGS}
 )
+
+
+#set(depname OpenCOLLADA)
+#set(${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")
+#set(${depname}_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+#set(${depname}_CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} )
+
+#ExternalProject_Add(
+#   ${depname}
+#   PREFIX ${${depname}_PREFIX}
+#   GIT_REPOSITORY  ${CMAKE_CURRENT_SOURCE_DIR}/${depname} 
+#     INSTALL_DIR ${${depname}_INSTALL_DIR}
+#  CMAKE_ARGS ${${depname}_CMAKE_ARGS}
+#)
 
 set(depname openal)
 set(${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")
