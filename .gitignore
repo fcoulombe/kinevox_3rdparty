@@ -1,4 +1,5 @@
 build*
+assimp
 eglew
 freetype2
 libpng
