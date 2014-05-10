@@ -1,0 +1,24 @@
+[submodule "assimp"]
+	path = assimp
+	url = https://github.com/fcoulombe/assimp.git
+[submodule "zlib"]
+	path = zlib
+	url = https://github.com/madler/zlib.git
+[submodule "eglew"]
+	path = eglew
+	url = https://github.com/fcoulombe/eglew.git
+[submodule "freetype2"]
+	path = freetype2
+	url = https://github.com/fcoulombe/freetype2.git
+[submodule "libpng"]
+	path = libpng
+	url = https://github.com/fcoulombe/libpng.git
+[submodule "ogg"]
+	path = ogg
+	url = https://github.com/fcoulombe/ogg.git
+[submodule "vorbis"]
+	path = vorbis
+	url = https://github.com/fcoulombe/vorbis.git
+[submodule "openal"]
+	path = openal
+	url = git://repo.or.cz/openal-soft.git
