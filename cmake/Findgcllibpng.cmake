@@ -9,7 +9,11 @@ FIND_PATH(
 	  PNG_INCLUDE_DIR png.h
 	  PATHS ${PNG_ROOT}/include)
 		
-FindLibrary(PNG_LIBRARY libpng16_static ${LPATH})
+IF(${WIN32})
+    FindLibrary(PNG_LIBRARY libpng16_static ${LPATH})
+ELSE()
+    FindLibrary(PNG_LIBRARY libpng  ${LPATH})
+ENDIF()
 	
 SET(${DepName}_INCLUDE_DIR ${PNG_INCLUDE_DIR} ${zlib_INCLUDE_DIR})
 list(APPEND ${DepName}_LIBS ${gclzlib_LIBS} )
