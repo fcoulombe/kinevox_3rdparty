@@ -115,6 +115,18 @@ ExternalProject_Add(
   CMAKE_ARGS ${${depname}_CMAKE_ARGS}
 )
 
+set(depname bullet3)
+set(${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")
+set(${depname}_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+set(${depname}_CMAKE_ARGS -DBUILD_SHARED_LIBS=false -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} -DBUILD_BULLET2_DEMOS=false -DBUILD_BULLET3_DEMOS=false -DBUILD_CPU_DEMOS=false -DBUILD_EXTRAS=false)
+
+ExternalProject_Add(
+   ${depname}
+   PREFIX ${${depname}_PREFIX}
+   GIT_REPOSITORY  ${CMAKE_CURRENT_SOURCE_DIR}/${depname} 
+     INSTALL_DIR ${${depname}_INSTALL_DIR}
+  CMAKE_ARGS ${${depname}_CMAKE_ARGS}
+)
 
 #set(depname OpenCOLLADA)
 #set(${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")

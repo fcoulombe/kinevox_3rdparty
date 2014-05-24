@@ -22,3 +22,6 @@
 [submodule "openal"]
 	path = openal
 	url = git://repo.or.cz/openal-soft.git
+[submodule "bullet3"]
+	path = bullet3
+	url = https://github.com/bulletphysics/bullet3.git
