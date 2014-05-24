@@ -1,7 +1,7 @@
 SET(DepName "gclassimp")
 
 SET(ASSIMP_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-SET(LPATH ${ZLIB_ROOT}/lib/)
+SET(LPATH ${ASSIMP_ROOT}/lib/)
 if(${WIN32})
     SET(LIB_NAME "assimp")
     FindLibrary(ASSIMP_LIBRARY ${LIB_NAME} ${LPATH})
