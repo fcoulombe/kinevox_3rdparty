@@ -86,10 +86,10 @@ ExternalProject_Add(
 set(depname libpng)
 set(${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")
 set(${depname}_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-set(${depname}_CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} -DZLIB_ROOT=${${depname}_INSTALL_DIR} )
+set(${depname}_CMAKE_ARGS -DPNG_TESTS=false -DPNG_SHARED=false -DPNG_STATIC=true -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} -DZLIB_ROOT=${${depname}_INSTALL_DIR} )
 message("prefix: " ${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")
 message("inst: " ${depname}_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-message("cmake arg: " ${depname}_CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} -DZLIB_ROOT=${${depname}_INSTALL_DIR})
+message("cmake arg: " ${depname}_CMAKE_ARGS -DPNG_TESTS=false -DPNG_SHARED=false -DPNG_STATIC=true -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} -DZLIB_ROOT=${${depname}_INSTALL_DIR})
 #message("inst dir: " ${${depname}_INSTALL_DIR})
 
 ExternalProject_Add(
@@ -118,7 +118,7 @@ ExternalProject_Add(
 set(depname bullet3)
 set(${depname}_PREFIX "${CMAKE_CURRENT_BINARY_DIR}/${depname}")
 set(${depname}_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-set(${depname}_CMAKE_ARGS -DBUILD_SHARED_LIBS=false -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} -DBUILD_BULLET2_DEMOS=false -DBUILD_BULLET3_DEMOS=false -DBUILD_CPU_DEMOS=false -DBUILD_EXTRAS=false -DINSTALL_LIBS=true -DUSE_MSVC_RUNTIME_LIBRARY_DLL=true)
+set(${depname}_CMAKE_ARGS -DBUILD_SHARED_LIBS=false -DCMAKE_INSTALL_PREFIX=${${depname}_INSTALL_DIR} -DBUILD_BULLET2_DEMOS=false -DBUILD_UNIT_TESTS=false -DBUILD_BULLET3_DEMOS=false -DBUILD_CPU_DEMOS=false -DBUILD_EXTRAS=false -DINSTALL_LIBS=true -DUSE_MSVC_RUNTIME_LIBRARY_DLL=true)
 
 ExternalProject_Add(
    ${depname}
