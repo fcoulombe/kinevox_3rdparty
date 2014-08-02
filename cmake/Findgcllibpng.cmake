@@ -5,9 +5,7 @@ SET(PNG_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_
 SET(LPATH ${PNG_ROOT}/lib/)
 
 
-FIND_PATH(
-	  PNG_INCLUDE_DIR png.h
-	  PATHS ${PNG_ROOT}/include)
+FIND_PATH(PNG_INCLUDE_DIR png.h PATHS ${PNG_ROOT}/include NO_DEFAULT_PATH)
 		
 IF(${WIN32})
     FindLibrary(PNG_LIBRARY libpng16_static ${LPATH})

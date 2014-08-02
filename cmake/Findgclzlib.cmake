@@ -9,7 +9,8 @@ ELSE()
 ENDIF()
 FIND_PATH(
 		  ZLIB_INCLUDE_DIR zlib.h
-		  PATHS ${ZLIB_ROOT}/include)
+		  PATHS ${ZLIB_ROOT}/include
+		  NO_DEFAULT_PATH)
 		
 FindLibrary(ZLIB_LIBRARY ${LIB_NAME} ${LPATH})
 SET(${DepName}_INCLUDE_DIR  ${ZLIB_INCLUDE_DIR})

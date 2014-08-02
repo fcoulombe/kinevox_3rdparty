@@ -45,6 +45,7 @@ ELSE()
     
     SET(LIB_NAME "libBulletCollision")
     FindLibrary(BULLETCOLLISION_LIBRARY ${LIB_NAME} ${LPATH})
+        message("Bullet collision: " ${BULLETCOLLISION_LIBRARY} ${LPATH})
     list(APPEND ${DepName}_LIBS ${BULLETCOLLISION_LIBRARY})
     
     SET(LIB_NAME "libBullet3Collision")
@@ -61,7 +62,8 @@ ELSE()
 ENDIF()
 FIND_PATH(
 	BULLET3_INCLUDE_DIR btBulletCollisionCommon.h
-	PATHS ${BULLET3_ROOT}/include/bullet)
+	PATHS ${BULLET3_ROOT}/include/bullet
+	NO_DEFAULT_PATH)
 		
 
 SET(${DepName}_INCLUDE_DIR  ${BULLET3_INCLUDE_DIR})
