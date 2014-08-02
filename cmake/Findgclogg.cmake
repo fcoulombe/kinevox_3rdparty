@@ -8,10 +8,7 @@ else()
     SET(LIB_NAME "libogg")
 endif()
 	
-SET(OGG_INCLUDE_DIR ${OGG_ROOT}/include)
-FindLibrary(OGG_LIBRARY ${LIB_NAME} ${LPATH})
-	
-SET(${DepName}_INCLUDE_DIR ${OGG_INCLUDE_DIR} )
-list(APPEND ${DepName}_LIBS ${OGG_LIBRARY} )
+SET(${DepName}_INCLUDE_DIR ${OGG_ROOT}/include)
+list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}.a )
 #message("ogg!!!" ${OGG_LIBRARY})
 

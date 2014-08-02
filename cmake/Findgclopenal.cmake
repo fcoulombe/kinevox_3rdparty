@@ -7,13 +7,8 @@ IF(${WIN32})
 ELSE()
     SET(LIB_NAME "libopenal")
 ENDIF()
-FIND_PATH(OPENAL_INCLUDE_DIR al.h
-	PATHS "${OPENAL_ROOT}/include"
-	"${OPENAL_ROOT}/include/AL"
-	NO_DEFAULT_PATH)
-FindLibrary(OPENAL_LIBRARY ${LIB_NAME} ${LPATH})
  	
-SET(${DepName}_INCLUDE_DIR ${OPENAL_INCLUDE_DIR} )
-list(APPEND ${DepName}_LIBS ${OPENAL_LIBRARY})
+SET(${DepName}_INCLUDE_DIR "${OPENAL_ROOT}/include" )
+list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}.so)
 #message("openal!!!" ${OPENAL_INCLUDE_DIR})
 #message("openal!!!" ${LPATH} ${LIB_NAME} ${OPENAL_LIBRARY})

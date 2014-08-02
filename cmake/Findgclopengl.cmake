@@ -1,5 +1,6 @@
+IF(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
 
-IF(${ES2})
+ELSEIF(${ES2})
     if (${WIN32})
     	SET(POWERVR_SDK_ROOT "C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.1\\Builds\\")
     	SET(GL_INCLUDE ${POWERVR_SDK_ROOT}/Include/)

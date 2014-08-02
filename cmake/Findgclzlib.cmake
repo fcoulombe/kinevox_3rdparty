@@ -7,12 +7,7 @@ if(${WIN32})
 ELSE()
     SET(LIB_NAME "libz")
 ENDIF()
-FIND_PATH(
-		  ZLIB_INCLUDE_DIR zlib.h
-		  PATHS ${ZLIB_ROOT}/include
-		  NO_DEFAULT_PATH)
-		
-FindLibrary(ZLIB_LIBRARY ${LIB_NAME} ${LPATH})
-SET(${DepName}_INCLUDE_DIR  ${ZLIB_INCLUDE_DIR})
-list(APPEND ${DepName}_LIBS ${ZLIB_LIBRARY})
+
+SET(${DepName}_INCLUDE_DIR  ${ZLIB_ROOT}/include)
+list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}.a)
 

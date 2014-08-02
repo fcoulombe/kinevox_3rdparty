@@ -1,17 +1,5 @@
 SET(DepName "gclvld")
 
-SET(ZLIB_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-SET(LPATH ${ZLIB_ROOT}/lib/)
-SET(LIB_NAME "zlibstatic")
-	
-FIND_PATH(
-		  ZLIB_INCLUDE_DIR zlib.h
-		  PATHS ${ZLIB_ROOT}/include
-		  NO_DEFAULT_PATH)
-		
-FindLibrary(ZLIB_LIBRARY ${LIB_NAME} ${LPATH})
-SET(${DepName}_INCLUDE_DIR  ${ZLIB_INCLUDE_DIR})
-list(APPEND ${DepName}_LIBS ${ZLIB_LIBRARY})
 if(ENABLE_VLD)
 SET(DEFAULT_VLD_ROOT "C:/Program Files (x86)/Visual Leak Detector/include")
 SET(DEFAULT_VLD_ROOT2 "C:/Program Files/Visual Leak Detector/include")

@@ -2,17 +2,8 @@ SET(DepName "gcleglew")
 IF(${IS_EGLEW_ENABLED})
 		SET(EGLEW_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
 
-		SET(EGLEW_INCLUDE_DIR ${EGLEW_ROOT}/include)
-
-		FIND_LIBRARY(
-  		EGLEW_LIBRARY 
-  		NAMES 
-    		eglew
-  		PATHS
-		${EGLEW_ROOT}/lib/
-  		NO_DEFAULT_PATHS )
-		SET(${DepName}_INCLUDE_DIR ${EGLEW_INCLUDE_DIR} )
-		list(APPEND ${DepName}_LIBS ${EGLEW_LIBRARY} )
+		SET(${DepName}_INCLUDE_DIR ${EGLEW_ROOT}/include )
+		list(APPEND ${DepName}_LIBS ${EGLEW_ROOT}/lib/eglew.a )
 		#message("eglew!!!" ${${DepName}_INCLUDE_DIR} )
 ENDIF()
 

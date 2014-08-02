@@ -1,72 +1,48 @@
 SET(DepName "gclbullet3")
 
 SET(BULLET3_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-SET(LPATH ${BULLET3_ROOT}/lib/)
+SET(LPATH ${BULLET3_ROOT}lib/)
+SET(LIB_SUFFIX .a)
 if(${WIN32})
     SET(LIB_NAME "LinearMath")
-    FindLibrary(BULLET3LINEARMATH_LIBRARY ${LIB_NAME} ${LPATH})
-    FindLibrary(BULLET3LINEARMATH_LIBRARY_debug ${LIB_NAME}_Debug ${LPATH})
-    list(APPEND ${DepName}_LIBS optimized ${BULLET3LINEARMATH_LIBRARY})
-    list(APPEND ${DepName}_LIBS debug ${BULLET3LINEARMATH_LIBRARY_debug})
+    list(APPEND ${DepName}_LIBS optimized ${LPATH}${LIB_NAME}${LIB_SUFFIX})
+    list(APPEND ${DepName}_LIBS debug ${LPATH}${LIB_NAME}_Debug${LIB_SUFFIX})
     
     SET(LIB_NAME "Bullet3Common")
-    FindLibrary(BULLET3COMMON_LIBRARY ${LIB_NAME} ${LPATH})
-    FindLibrary(BULLET3COMMON_LIBRARY_debug ${LIB_NAME}_Debug ${LPATH})
-    list(APPEND ${DepName}_LIBS optimized ${BULLET3COMMON_LIBRARY})
-    list(APPEND ${DepName}_LIBS debug ${BULLET3COMMON_LIBRARY_debug})
+    list(APPEND ${DepName}_LIBS optimized ${LPATH}${LIB_NAME}${LIB_SUFFIX})
+    list(APPEND ${DepName}_LIBS debug ${LPATH}${LIB_NAME}_Debug${LIB_SUFFIX})
 
     SET(LIB_NAME "BulletCollision")
-    FindLibrary(BULLETCOLLISION_LIBRARY ${LIB_NAME} ${LPATH})
-    FindLibrary(BULLETCOLLISION_LIBRARY_debug ${LIB_NAME}_Debug ${LPATH})
-    list(APPEND ${DepName}_LIBS optimized ${BULLETCOLLISION_LIBRARY})
-    list(APPEND ${DepName}_LIBS debug ${BULLETCOLLISION_LIBRARY_debug})
+    list(APPEND ${DepName}_LIBS optimized ${LPATH}${LIB_NAME}${LIB_SUFFIX})
+    list(APPEND ${DepName}_LIBS debug ${LPATH}${LIB_NAME}_Debug${LIB_SUFFIX})
         
     SET(LIB_NAME "Bullet3Collision")
-    FindLibrary(BULLET3COLLISION_LIBRARY ${LIB_NAME} ${LPATH})
-    FindLibrary(BULLET3COLLISION_LIBRARY_debug ${LIB_NAME}_Debug ${LPATH})
-    list(APPEND ${DepName}_LIBS optimized ${BULLET3COLLISION_LIBRARY})
-    list(APPEND ${DepName}_LIBS debug ${BULLET3COLLISION_LIBRARY_debug})
+    list(APPEND ${DepName}_LIBS optimized ${LPATH}${LIB_NAME}${LIB_SUFFIX})
+    list(APPEND ${DepName}_LIBS debug ${LPATH}${LIB_NAME}_Debug${LIB_SUFFIX})
     
     SET(LIB_NAME "BulletDynamics")
-    FindLibrary(BULLETDYNAMICS_LIBRARY ${LIB_NAME} ${LPATH})
-    FindLibrary(BULLETDYNAMICS_LIBRARY_debug ${LIB_NAME}_Debug ${LPATH})
-    list(APPEND ${DepName}_LIBS optimized ${BULLETDYNAMICS_LIBRARY})
-    list(APPEND ${DepName}_LIBS debug ${BULLETDYNAMICS_LIBRARY_debug})
-    
+    list(APPEND ${DepName}_LIBS optimized ${LPATH}${LIB_NAME}${LIB_SUFFIX})
+    list(APPEND ${DepName}_LIBS debug ${LPATH}${LIB_NAME}_Debug${LIB_SUFFIX})    
 ELSE()
     
     SET(LIB_NAME "libLinearMath")
-    FindLibrary(BULLET3LINEARMATH_LIBRARY ${LIB_NAME} ${LPATH})
-    list(APPEND ${DepName}_LIBS ${BULLET3LINEARMATH_LIBRARY})
+    list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     
     SET(LIB_NAME "libBullet3Common")
-    FindLibrary(BULLET3COMMON_LIBRARY ${LIB_NAME} ${LPATH})
-    list(APPEND ${DepName}_LIBS ${BULLET3COMMON_LIBRARY})
+    list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     
     SET(LIB_NAME "libBulletCollision")
-    FindLibrary(BULLETCOLLISION_LIBRARY ${LIB_NAME} ${LPATH})
-        message("Bullet collision: " ${BULLETCOLLISION_LIBRARY} ${LPATH})
-    list(APPEND ${DepName}_LIBS ${BULLETCOLLISION_LIBRARY})
+    list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     
     SET(LIB_NAME "libBullet3Collision")
-    FindLibrary(BULLET3COLLISION_LIBRARY ${LIB_NAME} ${LPATH})
-    list(APPEND ${DepName}_LIBS ${BULLET3COLLISION_LIBRARY})
+    list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     
     SET(LIB_NAME "libBulletDynamics")
-    FindLibrary(BULLETDYNAMICS_LIBRARY ${LIB_NAME} ${LPATH})
-    list(APPEND ${DepName}_LIBS ${BULLETDYNAMICS_LIBRARY})
+    list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     
-    #SET(LIB_NAME "libBullet3Geometry")
-    #FindLibrary(BULLET3GEOMETRY_LIBRARY ${LIB_NAME} ${LPATH})
-    #list(APPEND ${DepName}_LIBS ${BULLET3GEOMETRY_LIBRARY})
 ENDIF()
-FIND_PATH(
-	BULLET3_INCLUDE_DIR btBulletCollisionCommon.h
-	PATHS ${BULLET3_ROOT}/include/bullet
-	NO_DEFAULT_PATH)
-		
 
-SET(${DepName}_INCLUDE_DIR  ${BULLET3_INCLUDE_DIR})
+SET(${DepName}_INCLUDE_DIR  ${BULLET3_ROOT}/include/bullet)
 
 
 #list(APPEND ${DepName}_DLL ${ASSIMP_ROOT}/bin/assimp.dll)
