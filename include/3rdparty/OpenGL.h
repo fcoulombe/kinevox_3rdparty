@@ -54,7 +54,8 @@
 #elif defined (ES3)
 #define GL_PIXEL_UNPACK_BUFFER_ARB GL_PIXEL_UNPACK_BUFFER
 #define GL_PIXEL_PACK_BUFFER_ARB GL_PIXEL_PACK_BUFFER
-#elif defined(OS_MACOSX) 
+#endif
+#if defined(OS_MACOSX)
 #   include <OpenGL/gl.h>
 #   include <OpenGL/glext.h>
 #elif defined(OS_LINUX)
@@ -82,6 +83,8 @@
 #   define glDeleteRenderbuffers glDeleteRenderbuffersEXT
 #   undef glGenerateMipmap
 #   define glGenerateMipmap glGenerateMipmapEXT
+#elif defined(OS_ANDROID)
+#define GL_TEXTURE_WIDTH GL_TEXTURE_WIDTH_QCOM
 #elif defined(OS_WIN32)
 #   include <windows.h>
 #   include <GL/gl.h>

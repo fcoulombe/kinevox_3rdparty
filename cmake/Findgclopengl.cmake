@@ -1,5 +1,7 @@
 IF(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
-
+        SET(DepName "gclopengl")
+        list(APPEND ${DepName}_LIBS libGLESv2.so)
+        list(APPEND ${DepName}_LIBS libEGL.so)
 ELSEIF(${ES2})
     if (${WIN32})
     	SET(POWERVR_SDK_ROOT "C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.1\\Builds\\")
@@ -27,12 +29,12 @@ ELSEIF(${ES2})
         SET(DepName "gclopengl")
         SET(${DepName}_INCLUDE_DIR "/usr/local/include" ${gcleglew_INCLUDE_DIR})
         
-        list(APPEND ${DepName}_LIBS /usr/local/lib/libEGL.so)
-        list(APPEND ${DepName}_LIBS /usr/local/lib/libGLESv2.so)
-    
-        #message(${DepName}_INCLUDE_DIR)
-        list(APPEND ${DepName}_LIBS ${gcleglew_LIBS})
+        #list(APPEND ${DepName}_LIBS /usr/local/lib/libEGL.so)
+        list(APPEND ${DepName}_LIBS libGLESv2.so)
+        list(APPEND ${DepName}_LIBS libEGL.so)
         
+        #message(${DepName}_INCLUDE_DIR)
+        list(APPEND ${DepName}_LIBS ${gcleglew_LIBS})    
     endif()
 ELSEIF(${ES3})
 	message("ES3")

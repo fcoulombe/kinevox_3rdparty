@@ -28,7 +28,7 @@
 #endif
 #if defined(OS_IPHONE)
 #elif defined(OS_MACOSX)
-#elif defined(OS_LINUX)
+#elif defined(OS_LINUX) || defined(OS_ANDROID)
 #	include <ogg/ogg.h>
 #	include <vorbis/codec.h>
 #	include <vorbis/vorbisenc.h>

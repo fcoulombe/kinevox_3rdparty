@@ -1,7 +1,10 @@
 SET(DepName "gclbullet3")
 
-SET(BULLET3_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
-SET(LPATH ${BULLET3_ROOT}lib/)
+get_filename_component(BULLET3_ROOT
+                       "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/"
+                       REALPATH)
+
+SET(LPATH ${BULLET3_ROOT}/lib/)
 SET(LIB_SUFFIX .a)
 if(${WIN32})
     SET(LIB_NAME "LinearMath")

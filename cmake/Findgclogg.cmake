@@ -1,6 +1,9 @@
 SET(DepName "gclogg")
 
-SET(OGG_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+get_filename_component(OGG_ROOT
+                       "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/"
+                       REALPATH)
+
 SET(LPATH ${OGG_ROOT}/lib/)
 if(${WIN32})
     SET(LIB_NAME "ogg")

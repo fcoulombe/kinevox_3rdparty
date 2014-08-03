@@ -1,6 +1,9 @@
 SET(DepName "gclopenal")
 
-SET(OPENAL_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+get_filename_component(OPENAL_ROOT
+                       "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/"
+                       REALPATH)
+
 SET(LPATH ${OPENAL_ROOT}/lib/)
 IF(${WIN32})
     SET(LIB_NAME "OpenAL32")

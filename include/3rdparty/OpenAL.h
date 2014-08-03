@@ -26,7 +26,7 @@
 
 #if defined(OS_IPHONE)
 #elif defined(OS_MACOSX)
-#elif defined(OS_LINUX)
+#elif defined(OS_LINUX) || defined(OS_ANDROID)
 #   include <AL/al.h>
 #   include <AL/alc.h>
 #elif defined(OS_WIN32)

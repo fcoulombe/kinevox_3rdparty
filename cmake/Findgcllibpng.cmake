@@ -1,7 +1,10 @@
 
 FIND_PACKAGE(gclzlib)
 SET(DepName "gcllibpng")
-SET(PNG_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+get_filename_component(PNG_ROOT
+                       "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/"
+                       REALPATH)
+        
 SET(LPATH ${PNG_ROOT}/lib/)
 		
 IF(${WIN32})

@@ -1,9 +1,14 @@
 SET(DepName "gclzlib")
 
-SET(ZLIB_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+get_filename_component(ZLIB_ROOT
+                       "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/"
+                       REALPATH)
+
 SET(LPATH ${ZLIB_ROOT}/lib/)
 if(${WIN32})
     SET(LIB_NAME "zlibstatic")
+elseif(${ANDROID})
+    SET(LIB_NAME "libzlibstatic")
 ELSE()
     SET(LIB_NAME "libz")
 ENDIF()

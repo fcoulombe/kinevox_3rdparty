@@ -1,5 +1,7 @@
 SET(DepName "gclfreetype")
-SET(FREETYPE_ROOT "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/")
+get_filename_component(FREETYPE_ROOT
+                       "${CMAKE_CURRENT_LIST_DIR}/../binaries/${CMAKE_SYSTEM_NAME}${CMAKE_CXX_COMPILER_ID}${KINEVOX_ARCHITECTURE}/usr/local/"
+                       REALPATH)
 SET(LPATH ${FREETYPE_ROOT}/lib/)
 SET(LIB_NAME "libfreetype")
 
