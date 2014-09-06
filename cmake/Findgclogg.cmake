@@ -6,12 +6,14 @@ get_filename_component(OGG_ROOT
 
 SET(LPATH ${OGG_ROOT}/lib/)
 if(${WIN32})
+    SET(LIB_SUFFIX ".lib")
     SET(LIB_NAME "ogg")
 else()
+    SET(LIB_SUFFIX ".a")
     SET(LIB_NAME "libogg")
 endif()
 	
 SET(${DepName}_INCLUDE_DIR ${OGG_ROOT}/include)
-list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}.a )
+list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX} )
 #message("ogg!!!" ${OGG_LIBRARY})
 

@@ -6,12 +6,15 @@ get_filename_component(OPENAL_ROOT
 
 SET(LPATH ${OPENAL_ROOT}/lib/)
 IF(${WIN32})
+    SET(LIB_SUFFIX ".lib")
     SET(LIB_NAME "OpenAL32")
+    SET(${DepName}_INCLUDE_DIR "${OPENAL_ROOT}/include/AL" )
 ELSE()
+    SET(LIB_SUFFIX ".so")
     SET(LIB_NAME "libopenal")
+    SET(${DepName}_INCLUDE_DIR "${OPENAL_ROOT}/include" )
 ENDIF()
  	
-SET(${DepName}_INCLUDE_DIR "${OPENAL_ROOT}/include" )
-list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}.so)
+list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX})
 #message("openal!!!" ${OPENAL_INCLUDE_DIR})
 #message("openal!!!" ${LPATH} ${LIB_NAME} ${OPENAL_LIBRARY})

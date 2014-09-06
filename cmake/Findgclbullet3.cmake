@@ -5,8 +5,10 @@ get_filename_component(BULLET3_ROOT
                        REALPATH)
 
 SET(LPATH ${BULLET3_ROOT}/lib/)
-SET(LIB_SUFFIX .a)
+
 if(${WIN32})
+    SET(LIB_SUFFIX .lib)
+
     SET(LIB_NAME "LinearMath")
     list(APPEND ${DepName}_LIBS optimized ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     list(APPEND ${DepName}_LIBS debug ${LPATH}${LIB_NAME}_Debug${LIB_SUFFIX})
@@ -27,7 +29,8 @@ if(${WIN32})
     list(APPEND ${DepName}_LIBS optimized ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     list(APPEND ${DepName}_LIBS debug ${LPATH}${LIB_NAME}_Debug${LIB_SUFFIX})    
 ELSE()
-    
+    SET(LIB_SUFFIX .a)
+
     SET(LIB_NAME "libLinearMath")
     list(APPEND ${DepName}_LIBS ${LPATH}${LIB_NAME}${LIB_SUFFIX})
     

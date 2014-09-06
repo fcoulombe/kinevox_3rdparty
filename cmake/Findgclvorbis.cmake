@@ -7,8 +7,14 @@ get_filename_component(VORBIS_ROOT
 SET(LPATH ${VORBIS_ROOT}/lib/)
 	  
 SET(${DepName}_INCLUDE_DIR ${VORBIS_ROOT}/include )
-list(APPEND ${DepName}_LIBS ${LPATH}libvorbis.a)
-list(APPEND ${DepName}_LIBS ${LPATH}libvorbisfile.a)
+
+if (${WIN32})
+    SET(LIB_SUFFIX ".lib")
+else()
+    SET(LIB_SUFFIX ".a")
+endif()
+list(APPEND ${DepName}_LIBS ${LPATH}libvorbis${LIB_SUFFIX})
+list(APPEND ${DepName}_LIBS ${LPATH}libvorbisfile${LIB_SUFFIX})
 if (NOT ${MSVC})
  	list(APPEND ${DepName}_LIBS "m")
 ENDIF()
