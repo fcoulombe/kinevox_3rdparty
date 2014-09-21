@@ -13,6 +13,7 @@ elseif(${ANDROID})
     SET(LIB_SUFFIX ".a")
 ELSE()
     SET(LIB_NAME "libz")
+    SET(LIB_SUFFIX ".a")
 ENDIF()
 
 SET(${DepName}_INCLUDE_DIR  ${ZLIB_ROOT}/include)
