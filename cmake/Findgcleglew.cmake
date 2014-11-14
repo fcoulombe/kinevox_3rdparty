@@ -5,7 +5,7 @@ IF(${IS_EGLEW_ENABLED})
                        REALPATH)
 		
 		SET(${DepName}_INCLUDE_DIR ${EGLEW_ROOT}/include )
-		list(APPEND ${DepName}_LIBS ${EGLEW_ROOT}/lib/eglew.a )
+		list(APPEND ${DepName}_LIBS ${EGLEW_ROOT}/lib/libeglew.a )
 		#message("eglew!!!" ${${DepName}_INCLUDE_DIR} )
 ENDIF()
 
