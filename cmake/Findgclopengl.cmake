@@ -1,7 +1,11 @@
 IF(${CMAKE_SYSTEM_NAME} STREQUAL "Android")
+        FIND_PACKAGE(gcleglew)
         SET(DepName "gclopengl")
+        SET(${DepName}_INCLUDE_DIR "/usr/local/include" ${gcleglew_INCLUDE_DIR})
         list(APPEND ${DepName}_LIBS libGLESv2.so)
         list(APPEND ${DepName}_LIBS libEGL.so)
+        
+        list(APPEND ${DepName}_LIBS ${gcleglew_LIBS}) 
 ELSEIF(${ES2})
     if (${WIN32})
     	SET(POWERVR_SDK_ROOT "C:\\Imagination\\PowerVR\\GraphicsSDK\\SDK_3.1\\Builds\\")
