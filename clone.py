@@ -1,3 +1,4 @@
+#!/usr/bin/python
 import os
 
 def main():
@@ -10,7 +11,7 @@ def main():
 	os.system("git clone  https://github.com/fcoulombe/ogg.git")
 	os.system("git clone  https://github.com/fcoulombe/vorbis.git")
 	os.system("git clone  git://repo.or.cz/openal-soft.git openal")
-	
+	os.system("git clone https://github.com/fcoulombe/spdlog.git")	
 
 if __name__ == "__main__":
 	main()

@@ -25,3 +25,6 @@
 [submodule "bullet3"]
 	path = bullet3
 	url = https://github.com/bulletphysics/bullet3.git
+[submodule "spdlog"]
+	path = spdlog
+	url = https://github.com/fcoulombe/spdlog.git
