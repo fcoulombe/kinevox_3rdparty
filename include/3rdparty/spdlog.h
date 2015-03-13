@@ -22,4 +22,6 @@
 
 #pragma once
 
+#include <3rdparty/ExternalHeader_Start.h>
 #include <../spdlog/include/spdlog/spdlog.h>
+#include <3rdparty/ExternalHeader_End.h>
